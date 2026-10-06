@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <audio id="sound" src="../ícone/som/freesound_community-motor-75615 (1).mp3" style="display:nome;"></audio>
+
+    <div class="container">
+        <h2>Minutos:</h2>
+        <select name="Minutos" id="Minutos"></select>
+
+        <h2>Segundos</h2>
+        <select name="Segundos" id="Segundos"></select>
+        <br><br>
+
+        <button id="comecar">Começar!</button>
+        <div id="display">
+            <h3></h3>
+        </div> <!--display-->
+
+    </div> <!--container-->
+
+    <script>
+        var display = document.getElementById('display');
+
+        var minutos = document.getElementById('Minutos');
+        var Segundos = document.getElementById('Segundos');
+
+        var comecar = document.getElementById('comecar')
+
+        var cronometroSeg;
+
+        var minutoAtual;
+        var seundoAtual;
+
+        var interval;
+
+        for (var i = 0; i <= 59; i++) {
+            minutos.innerHTML += '<option value= "' + i + '">' + i + '</opition>';
+        }
+        for (var i = 0; i <= 59; i++) {
+            segundos.innerHTML += '<option value="' + i + '">' + i + '</option>';
+        }
+
+        comecar.addEventListener('click', function () {
+            minutoAtual = minutos.value;
+            segundoAtual = segundos.value;
+
+            display.childNodes[i].innerHTML = minutoAtual + ":" + segundoAtual;
+
+            interval = setInterval(function () {
+                segundoAtual--;
+                if (segundoAtual <= 0) {
+
+                    if (minutoAtual >= 0) {
+                        minutoAtual--;
+                        segundoAtual = 59;
+                    }
+                } else {
+                    document.getElementById("sound").play();
+                    alert("Desligar Alarme!");
+                    clearInterval(interval);
+                    location.reload();
+                }
+
+            }
+    display.childNodes[i].innerHTML = minutoAtual + ":" + segundoAtual
+        }, 1000);
+
+    </script>
+
+</body>
+
+</html>

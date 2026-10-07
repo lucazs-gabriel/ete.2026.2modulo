@@ -35,31 +35,31 @@
 
         var cronometroSeg;
 
-        var minutoAtual;
-        var seundoAtual;
+        var MinutoAtual;
+        var SegundoAtual;
 
         var interval;
 
         for (var i = 0; i <= 59; i++) {
-            minutos.innerHTML += '<option value= "' + i + '">' + i + '</opition>';
+            Minutos.innerHTML += '<option value= "' + i + '">' + i + '</opition>';
         }
         for (var i = 0; i <= 59; i++) {
-            segundos.innerHTML += '<option value="' + i + '">' + i + '</option>';
+            Segundos.innerHTML += '<option value="' + i + '">' + i + '</option>';
         }
 
         comecar.addEventListener('click', function () {
-            minutoAtual = minutos.value;
-            segundoAtual = segundos.value;
+            MinutoAtual = Minutos.value;
+            SegundoAtual = Segundos.value;
 
-            display.childNodes[i].innerHTML = minutoAtual + ":" + segundoAtual;
+            display.childNodes[i].innerHTML = MinutoAtual + ":" + SegundoAtual;
 
             interval = setInterval(function () {
-                segundoAtual--;
-                if (segundoAtual <= 0) {
+                SegundoAtual--;
+                if (SegundoAtual <= 0) {
 
-                    if (minutoAtual >= 0) {
-                        minutoAtual--;
-                        segundoAtual = 59;
+                    if (MinutoAtual >= 0) {
+                        MinutoAtual--;
+                        SegundoAtual = 59;
                     }
                 } else {
                     document.getElementById("sound").play();
@@ -67,10 +67,11 @@
                     clearInterval(interval);
                     location.reload();
                 }
-
-            }
-    display.childNodes[i].innerHTML = minutoAtual + ":" + segundoAtual
-        }, 1000);
+                display.childNodes[i].innerHTML= MinutoAtual + ":" + SegundoAtual;
+    
+         },1000);
+    
+        })
 
     </script>
 
